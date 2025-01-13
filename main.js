@@ -32,3 +32,12 @@ const createWindow = () => {
       if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
   })
+
+function createTray(){
+    tray = new Tray(path.join(__dirname, 'assets', 'ditto_icon.png'));
+    const contextMenu = Menu.buildFromTemplate([
+        { label: 'Quit', role: 'quit'}
+]);
+    tray.setToolTip("Ditto");
+    tray.setContextMenu(contextMenu);
+}
