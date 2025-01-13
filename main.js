@@ -17,20 +17,15 @@ const createWindow = () => {
 
   app.whenReady().then(() => {
     createWindow()
+    
+    app.on('activate', () => {
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()
+      })
   })
 
   // quits application once all windows are closed (windows & linux)
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
-  })
-
-  // creates window if none are opened (mac)
-  app.whenReady().then(() => {
-    createWindow()
-  
-    app.on('activate', () => {
-      if (BrowserWindow.getAllWindows().length === 0) createWindow()
-    })
   })
 
 function createTray(){
