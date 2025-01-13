@@ -3,11 +3,17 @@ const { app, BrowserWindow } = require('electron')
 const createWindow = () => {
     const win = new BrowserWindow({
       width: 800,
-      height: 600
+      height: 600,
+      alwaysOnTop: false,
+      frame: false,
+      transparent: true,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js')
+      }
     })
-  
     win.loadFile('index.html')
   }
+  
 
   app.whenReady().then(() => {
     createWindow()
