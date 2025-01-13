@@ -4,7 +4,6 @@ const createWindow = () => {
     const win = new BrowserWindow({
       width: 800,
       height: 600,
-      alwaysOnTop: false,
       frame: false,
       transparent: true,
       webPreferences: {
@@ -14,7 +13,6 @@ const createWindow = () => {
     win.loadFile('index.html')
   }
   
-
   app.whenReady().then(() => {
     createWindow()
     
@@ -33,6 +31,5 @@ function createTray(){
     const contextMenu = Menu.buildFromTemplate([
         { label: 'Quit', role: 'quit'}
 ]);
-    tray.setToolTip("Ditto");
     tray.setContextMenu(contextMenu);
 }
