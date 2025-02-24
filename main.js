@@ -1,47 +1,48 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu, Tray } = require('electron');
 const path = require('path');
 
 let mainWindow;
+let tray;
 
-function createWindow(){
-  if (mainWindow) return;
+function createWindow() {
   mainWindow = new BrowserWindow({
-      width: 800,
-      height: 600,
-      alwaysOnTop: false,
-      // frame: true,
-      // transparent: true,
-      webPreferences: {
-        preload: path.join(__dirname, 'preload.js')
-      }
-    })
-    mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  }
-  
-
-  app.whenReady().then(() => {
-    createWindow()
-  })
-
-  // quits application once all windows are closed (windows & linux)
-  app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
-  })
-
-  // creates window if none are opened (mac)
-  app.whenReady().then(() => {
-    createWindow()
-  
-    app.on('activate', () => {
-      if (BrowserWindow.getAllWindows().length === 0) createWindow()
-    })
-  })
-
-function createTray(){
-    tray = new Tray(path.join(__dirname, 'assets', 'ditto_icon.png'));
-    const contextMenu = Menu.buildFromTemplate([
-        { label: 'Quit', role: 'quit'}
-]);
-    tray.setToolTip("Ditto");
-    tray.setContextMenu(contextMenu);
+    width: 800,
+    height: 600,
+    alwaysOnTop: false,
+    autoHideMenuBar: true,
+    // frame: true,
+    // transparent: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
 }
+
+function createTray() {
+  tray = new Tray(path.join(__dirname, 'assets', 'ditto_icon.png'));
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Quit', role: 'quit' }
+  ]);
+  tray.setToolTip('Ditto');
+  tray.setContextMenu(contextMenu);
+
+  tray.on('click', () => {
+    if (mainWindow) {
+      mainWindow.show();
+    }
+  });
+}
+
+app.whenReady().then(() => {
+  createWindow();
+  createTray();
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') app.quit();
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
