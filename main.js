@@ -14,13 +14,15 @@ function createWindow() {
     // transparent: true,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    icon: './assets/ditto_icon.png'
   });
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 }
 
 function createTray() {
-  tray = new Tray(path.join(__dirname, 'assets', 'ditto_icon.png'));
+  const trayIconPath = path.join(__dirname, 'assets', 'ditto_icon.png');
+  tray = new Tray(trayIconPath);
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Quit', role: 'quit' }
   ]);

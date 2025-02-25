@@ -1,7 +1,7 @@
 function addTask(){
-    const taskInput = document.createElement('taskInput');
-    const taskList = document.createElement('tasks');
-    const taskText = taskInput.ariaValueMax.trim();
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('tasks');
+    const taskText = taskInput.value.trim();
 
     if(taskText){
         // li = list item
