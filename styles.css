@@ -6,9 +6,18 @@ body {
     background-attachment: fixed;
     background-size: 100% 100%;
     background-position: center;
-    -webkit-app-region: drag;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -webkit-app-region: drag;
 }
+
+button, input, .quit-button, .close-button, .windowsControls, #tasks {
+    -webkit-app-region: no-drag;
+}
+
 body, input{
     font-family: 'HarvestStory', sans-serif;
 }
@@ -33,3 +42,52 @@ span {
     font-family: 'HarvestStory';
     src: url('./assets/HarvestStory.otf') format('truetype');
 }
+
+.taskContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.toDoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-button {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 12h14'/%3E%3C/svg%3E");
+}
+
+.quit-button {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4'/%3E%3C/svg%3E");
+}
+
+.windowsControls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    position: absolute;
+    width: auto;
+}
+
+/* .close-button, .quit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */

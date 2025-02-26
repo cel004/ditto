@@ -7,14 +7,18 @@
     <title>Ditto</title>
 </head>
     <body>
-        <h1>MY WEEKLY TASKS</h1>
-        <div id="taskContainer">
-            <ul id="tasks"></ul>
-            <input type="text" id="taskInput" placeholder="Enter task">
-            <button id="addTaskButton">Add Task</button>
+        <div class="toDoContainer">
+            <div class="windowsControls">
+                <div class="close-button"></div>
+                <div class="quit-button"></div>
+            </div>
+            <h2>MY WEEKLY TASKS</h2>
+            <div class="taskContainer">      
+                <ul id="tasks"></ul>
+                <input type="text" id="taskInput" placeholder="Enter task">
+                <button id="addTaskButton">Add Task</button>
+            </div>
         </div>
-        
         <script src="./taskManager.js"></script>
-
     </body>
 </html>

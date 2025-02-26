@@ -21,7 +21,6 @@ function addTask() {
         li.appendChild(taskContent);
         taskList.appendChild(li);
         
-
         taskInput.value = ''; // resets input
         editTask(taskContent);
         deleteTask(deleteButton, taskContent);
@@ -67,7 +66,6 @@ function editTask(taskContent) {
                 saveEdit();
             }
         });
-
         input.addEventListener('blur', saveEdit);
     });
 }
