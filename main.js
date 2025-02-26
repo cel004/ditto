@@ -10,8 +10,8 @@ function createWindow() {
     height: 600,
     alwaysOnTop: false,
     autoHideMenuBar: true,
-    // frame: true,
-    // transparent: true,
+    frame: true,
+    transparent: true,
     webPreferences: {
       nodeIntegration: true
     },

@@ -17,18 +17,15 @@ function addTask() {
         const taskContent = document.createElement('span');
         taskContent.textContent = taskText;
 
-        // append delete button first, then task content
         li.appendChild(deleteButton);
         li.appendChild(taskContent);
-
-        // append the li to the task list
         taskList.appendChild(li);
 
         // clear the input field
         taskInput.value = '';
 
         // call deleteTask function
-        deleteTask(deleteButton, li);
+        deleteTask(deleteButton, taskContent);
     }
 }
 
