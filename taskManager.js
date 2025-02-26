@@ -20,12 +20,10 @@ function addTask() {
         li.appendChild(deleteButton);
         li.appendChild(taskContent);
         taskList.appendChild(li);
+        
+
+        taskInput.value = ''; // resets input
         editTask(taskContent);
-
-        // clear the input field
-        taskInput.value = '';
-
-        // call deleteTask function
         deleteTask(deleteButton, taskContent);
     }
 }
@@ -48,6 +46,12 @@ function editTask(taskContent) {
         const input = document.createElement('input');
         input.type = 'text';
         input.value = taskContent.textContent;
+        input.style.border = 'none';
+        input.style.outline = 'none';
+
+        input.style.fontSize = 'inherit';
+        input.style.background = 'transparent';
+        input.style.boxSizing = 'border-box';
 
         const parent = taskContent.parentElement;
         parent.replaceChild(input, taskContent);
@@ -58,17 +62,20 @@ function editTask(taskContent) {
             parent.replaceChild(taskContent, input);
         }
 
-        // saves when pressing Enter
         input.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 saveEdit();
             }
         });
 
-        // saves when clicking outside
         input.addEventListener('blur', saveEdit);
     });
 }
 
     
 document.getElementById('addTaskButton').addEventListener('click', addTask);
+document.getElementById('taskInput').addEventListener('keypress', function (e){
+    if (e.key === 'Enter') {
+        addTask();
+    }
+});
