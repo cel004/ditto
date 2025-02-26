@@ -29,6 +29,7 @@ function createWindow() {
 
   mainWindow.setAspectRatio(aspectRatio);
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  enableResize();
 }
 
 function createTray() {
@@ -42,6 +43,19 @@ function createTray() {
     if (mainWindow) {
       mainWindow.show();
     }
+  });
+}
+
+function enableResize() {
+  mainWindow.on('will-resize', (event, newBounds) => {
+    const aspectRatio = mainWindow.getBounds().width / mainWindow.getBounds().height;
+    event.preventDefault();
+    mainWindow.setBounds({
+      x: newBounds.x,
+      y: newBounds.y,
+      width: newBounds.width,
+      height: Math.round(newBounds.width / aspectRatio)
+    });
   });
 }
 
