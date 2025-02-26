@@ -1,3 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('./assets/flan.png'); 
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-position: center;
+    -webkit-app-region: drag;
+    overflow: hidden;
+}
 body, input{
     font-family: 'HarvestStory', sans-serif;
 }
