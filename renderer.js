@@ -1,8 +1,16 @@
-document.querySelector('.quit-button').addEventListener('click', () => {
-    window.close();
+const { ipcRenderer } = require('electron');
+
+const minimizeButton = document.querySelector('.minimize-button');
+const quitButton = document.querySelector('.quit-button');
+
+minimizeButton.addEventListener('click', () => {
+    console.log('Minimize button clicked');
+
+    ipcRenderer.send('minimize-window');
 });
 
-document.querySelector('.minimize-button').addEventListener('click', () => {
-    const { remote } = require('electron');
-    remote.getCurrentWindow().minimize();
+quitButton.addEventListener('click', () => {
+    console.log('Quit button clicked');
+
+    ipcRenderer.send('quit-app'); 
 });

@@ -14,7 +14,7 @@ body {
     -webkit-app-region: drag;
 }
 
-button, input, .quit-button, .close-button, .windowsControls, #tasks {
+button, input, .quit-button, .minimize-button, .windowsControls, #tasks {
     -webkit-app-region: no-drag;
 }
 
@@ -59,7 +59,8 @@ span {
     justify-content: center;
 }
 
-.close-button {
+.minimize-button {
+    cursor: pointer;
     display: inline-block;
     width: 24px;
     height: 24px;
@@ -69,6 +70,7 @@ span {
 }
 
 .quit-button {
+    cursor: pointer;
     display: inline-block;
     width: 24px;
     height: 24px;
@@ -80,11 +82,14 @@ span {
 .windowsControls {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 0.5rem;
     position: absolute;
     width: auto;
+    top: 10px;
+    right: 10px;
 }
+
 
 /* .close-button, .quit-button {
     display: flex;

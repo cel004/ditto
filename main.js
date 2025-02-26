@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, Tray, nativeImage } = require('electron');
+const { app, BrowserWindow, Menu, Tray, nativeImage, ipcMain} = require('electron');
 const path = require('path');
 
 let mainWindow;
@@ -22,7 +22,8 @@ function createWindow() {
     transparent: true,
     resizable: true, 
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false
     },
     icon: path.join(__dirname, 'assets', 'ditto1.png')
   });
@@ -64,6 +65,17 @@ app.whenReady().then(() => {
   createTray();
 });
 
+ipcMain.on('minimize-window', () => {
+  mainWindow.minimize();
+});
+
+ipcMain.on('close-window', () => {
+  mainWindow.close();
+});
+
+ipcMain.on('quit-app', () => {
+  app.quit();
+});
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
