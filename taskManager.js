@@ -20,6 +20,7 @@ function addTask() {
         li.appendChild(deleteButton);
         li.appendChild(taskContent);
         taskList.appendChild(li);
+        editTask(taskContent);
 
         // clear the input field
         taskInput.value = '';
@@ -28,7 +29,6 @@ function addTask() {
         deleteTask(deleteButton, taskContent);
     }
 }
-
 function deleteTask(deleteButton, taskContent) {
     deleteButton.addEventListener('click', function () {
         if (taskContent.style.textDecoration === 'line-through') {
@@ -43,4 +43,32 @@ function deleteTask(deleteButton, taskContent) {
     });
 }
 
+function editTask(taskContent) {
+    taskContent.addEventListener('click', function () {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = taskContent.textContent;
+
+        const parent = taskContent.parentElement;
+        parent.replaceChild(input, taskContent);
+        input.focus();
+
+        function saveEdit() {
+            taskContent.textContent = input.value.trim() || 'New Task';
+            parent.replaceChild(taskContent, input);
+        }
+
+        // saves when pressing Enter
+        input.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                saveEdit();
+            }
+        });
+
+        // saves when clicking outside
+        input.addEventListener('blur', saveEdit);
+    });
+}
+
+    
 document.getElementById('addTaskButton').addEventListener('click', addTask);
