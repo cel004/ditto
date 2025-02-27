@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
     <title>Ditto</title>
 </head>
     <body>
-        <div class="header">
-            <h1>Today's to-do list</h1>
-            <!-- <input type="text" id="myInput" placeholder="Task..">
-            <button onclick="addTask()">Add</button> -->
+        <div class="toDoContainer">
+            <div class="windowsControls">
+                <div class="minimize-button"></div>
+                <div class="quit-button"></div>
+            </div>
+            <p class="tasksName">MY WEEKLY TASKS</p>
+            <div class="taskContainer">      
+                <ul id="tasks"></ul>
+                <input type="text" id="taskInput" placeholder="Enter task">
+                <button id="addTaskButton">Add Task</button>
+            </div>
         </div>
-
-        
-        <script src="./renderer.js"></script>
-
+        <script src="renderer.js"></script>
+        <script src="./taskManager.js"></script>
     </body>
 </html>
