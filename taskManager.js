@@ -56,7 +56,7 @@ function deleteTask(deleteButton, taskContent) {
 
 function editTask(taskContent) {
     taskContent.addEventListener('click', function () {
-        const input = document.createElement('input');
+        const input = document.createElement('input').innerHTML;
         input.type = 'text';
         input.value = taskContent.textContent;
         input.style.border = 'none';

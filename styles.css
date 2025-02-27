@@ -101,6 +101,14 @@ span {
     left: 385px;
 }
 
+button #addTaskButton {
+    font-family: 'HarvestStory', sans-serif;
+    text-align: left;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #642C14;
+}
 
 /* .close-button, .quit-button {
     display: flex;
