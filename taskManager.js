@@ -3,21 +3,33 @@ function addTask() {
     const taskList = document.getElementById('tasks');
     const taskText = taskInput.value.trim();
 
+    const heart = document.createElement('img');
+    heart.src = './assets/heart.png';
+    heart.width = 15;
+    heart.height = 15;
+
+    const filledHeart = document.createElement('img');
+    filledHeart.src = './assets/filled_heart.png';
+    filledHeart.width = 15;
+    filledHeart.height = 15;
+
     if (taskText) {
         // li = list item
         const li = document.createElement('li');
 
         // create delete button
         const deleteButton = document.createElement('span');
-        deleteButton.textContent = '♡';
+        deleteButton.style.color = '#642C14';
+        deleteButton.innerHTML  = '';
         deleteButton.style.cursor = 'pointer';
         deleteButton.style.marginLeft = '10px';
 
         // create task content (task text)
         const taskContent = document.createElement('span');
         taskContent.textContent = taskText;
+        taskContent.style.color = '#642C14';
 
-        li.appendChild(deleteButton);
+        li.appendChild(heart);
         li.appendChild(taskContent);
         taskList.appendChild(li);
         
@@ -32,10 +44,12 @@ function deleteTask(deleteButton, taskContent) {
             deleteButton.style.userSelect = 'none';
             taskContent.style.textDecoration = 'none';
             taskContent.style.opacity = '1';
+            heart.src = './assets/heart.png';
         } else {
             deleteButton.style.userSelect = 'none';
             taskContent.style.textDecoration = 'line-through';
             taskContent.style.opacity = '0.5';
+            heart.src = './assets/filled_heart.png'
         }
     });
 }
