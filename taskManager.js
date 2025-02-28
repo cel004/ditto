@@ -8,10 +8,10 @@ function addTask() {
     heart.width = 15;
     heart.height = 15;
 
-    const filledHeart = document.createElement('img');
-    filledHeart.src = './assets/filled_heart.png';
-    filledHeart.width = 15;
-    filledHeart.height = 15;
+    // const filledHeart = document.createElement('img');
+    // filledHeart.src = './assets/filled_heart.png';
+    // filledHeart.width = 15;
+    // filledHeart.height = 15;
 
     if (taskText) {
         // li = list item
@@ -44,19 +44,19 @@ function deleteTask(deleteButton, taskContent) {
             deleteButton.style.userSelect = 'none';
             taskContent.style.textDecoration = 'none';
             taskContent.style.opacity = '1';
-            heart.src = './assets/heart.png';
+            // heart.src = './assets/heart.png';
         } else {
             deleteButton.style.userSelect = 'none';
             taskContent.style.textDecoration = 'line-through';
             taskContent.style.opacity = '0.5';
-            heart.src = './assets/filled_heart.png'
+            // heart.src = './assets/filled_heart.png'
         }
     });
 }
 
 function editTask(taskContent) {
     taskContent.addEventListener('click', function () {
-        const input = document.createElement('input').innerHTML;
+        const input = document.createElement('input');
         input.type = 'text';
         input.value = taskContent.textContent;
         input.style.border = 'none';
