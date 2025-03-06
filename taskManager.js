@@ -83,6 +83,17 @@ function editTask(taskContent) {
     });
 }
 
+document.getElementById('addTaskButton').addEventListener('click', function () {
+    const taskInput = document.getElementById('taskInput');
+    
+    if (taskInput.style.display == 'none' || taskInput.style.display == '') {
+        taskInput.style.display = 'block';
+    } else {
+        taskInput.style.display = 'none';
+    }
+});
+
+
     
 document.getElementById('addTaskButton').addEventListener('click', addTask);
 document.getElementById('taskInput').addEventListener('keypress', function (e){
