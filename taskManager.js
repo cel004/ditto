@@ -3,19 +3,15 @@ function addTask() {
     const taskList = document.getElementById('tasks');
     const taskText = taskInput.value.trim();
 
-    const heart = document.createElement('img');
-    heart.src = './assets/heart.png';
-    heart.width = 15;
-    heart.height = 15;
-
-    // const filledHeart = document.createElement('img');
-    // filledHeart.src = './assets/filled_heart.png';
-    // filledHeart.width = 15;
-    // filledHeart.height = 15;
-
     if (taskText) {
         // li = list item
         const li = document.createElement('li');
+
+        const heart = document.createElement('img');
+        heart.src = './assets/heart.png';
+        heart.width = 15;
+        heart.height = 15;
+        const completeButton = heart;
 
         // create delete button
         const deleteButton = document.createElement('span');
@@ -34,22 +30,25 @@ function addTask() {
         taskList.appendChild(li);
         
         taskInput.value = ''; // resets input
+        
         editTask(taskContent);
-        deleteTask(deleteButton, taskContent);
+        deleteTask(completeButton, taskContent);
     }
 }
-function deleteTask(deleteButton, taskContent) {
-    deleteButton.addEventListener('click', function () {
+
+function deleteTask(completeButton, taskContent) {
+    completeButton.addEventListener('click', function () {
         if (taskContent.style.textDecoration === 'line-through') {
-            deleteButton.style.userSelect = 'none';
+            completeButton.style.userSelect = 'none';
             taskContent.style.textDecoration = 'none';
             taskContent.style.opacity = '1';
-            // heart.src = './assets/heart.png';
+            completeButton.src = './assets/heart.png';
         } else {
-            deleteButton.style.userSelect = 'none';
+            completeButton.style.userSelect = 'none';
             taskContent.style.textDecoration = 'line-through';
             taskContent.style.opacity = '0.5';
-            // heart.src = './assets/filled_heart.png'
+            completeButton.src = './assets/filled_heart.png';
+            completeButton.style.opacity = '0.8';
         }
     });
 }
