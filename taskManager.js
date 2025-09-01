@@ -60,10 +60,16 @@ function editTask(taskContent) {
         input.value = taskContent.textContent;
         input.style.border = 'none';
         input.style.outline = 'none';
+        input.style.marginLeft = taskContent.style.marginLeft || '10px';
 
         input.style.fontSize = 'inherit';
         input.style.background = 'transparent';
         input.style.boxSizing = 'border-box';
+
+        input.style.padding = '0';
+        input.style.width = 'auto';
+        input.style.lineHeight = '1.2';
+        input.style.display = 'inline';
 
         const parent = taskContent.parentElement;
         parent.replaceChild(input, taskContent);
