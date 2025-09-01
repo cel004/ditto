@@ -10,7 +10,7 @@ function createWindow() {
 
   const dimensions = image.getSize();
   const aspectRatio = dimensions.width / dimensions.height;
-  const initialWidth = 550;
+  const initialWidth = 400;
   const initialHeight = Math.round(initialWidth / aspectRatio);
 
   mainWindow = new BrowserWindow({
@@ -20,7 +20,7 @@ function createWindow() {
     autoHideMenuBar: true,
     frame: false,
     transparent: true,
-    resizable: true, 
+    resizable: false, 
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
