@@ -22,10 +22,15 @@ body, input, #tasks{
     font-family: 'HarvestStory', sans-serif;
     color: #642C14;
 }
+
 #tasks {
     list-style: none;
     padding: 0;
-    position: fixed;
+    position: relative;
+    width: 100%;
+    left: 50%;
+    margin-top: 5.2rem;
+    transform: translateX(-35%);
 }
 
 li {
@@ -105,7 +110,7 @@ span {
     
     position: absolute;
     bottom: 5rem;
-    left: 50%;
+    left: 25%;
     transform: translateX(-50%);
 }
 
@@ -117,6 +122,13 @@ span {
     font-size: 1.2rem;
 }
 
+#taskInput {
+    position: absolute;
+    bottom: 4.9rem;
+    right: 42%;
+    transform: translateX(50%);
+    width: 40%;
+}
 /* .close-button, .quit-button {
     display: flex;
     align-items: center;
