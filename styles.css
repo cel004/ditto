@@ -114,6 +114,13 @@ span {
     transform: translateX(-50%);
 }
 
+#addTaskButton:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    color: #642C14;
+}
+
 .tasksName {
     position: absolute;
     top: 8.5rem;
@@ -123,11 +130,13 @@ span {
 }
 
 #taskInput {
+    display: none;
     position: absolute;
     bottom: 4.9rem;
     right: 42%;
     transform: translateX(50%);
     width: 40%;
+    padding-left: 4px;
 }
 /* .close-button, .quit-button {
     display: flex;
