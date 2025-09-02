@@ -32,23 +32,24 @@ function addTask() {
         taskInput.value = ''; // resets input
         
         editTask(taskContent);
-        deleteTask(completeButton, taskContent);
+        deleteTask(heart, taskContent, li);
     }
 }
 
-function deleteTask(completeButton, taskContent) {
+function deleteTask(completeButton, taskContent, li) {
+    let isCompleted = false;
+    
     completeButton.addEventListener('click', function () {
-        if (taskContent.style.textDecoration === 'line-through') {
-            completeButton.style.userSelect = 'none';
-            taskContent.style.textDecoration = 'none';
-            taskContent.style.opacity = '1';
-            completeButton.src = './assets/heart.png';
-        } else {
-            completeButton.style.userSelect = 'none';
+         if (!isCompleted) {
+            // first click = mark as complete
             taskContent.style.textDecoration = 'line-through';
             taskContent.style.opacity = '0.5';
             completeButton.src = './assets/filled_heart.png';
             completeButton.style.opacity = '0.8';
+            isCompleted = true;
+        } else {
+            // second click = delete task
+            li.remove();
         }
     });
 }
