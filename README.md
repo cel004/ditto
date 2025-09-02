@@ -1,11 +1,9 @@
 # ditto
 ### interactive windows desktop to-do list ⋆ ˚｡⋆୨୧
 - add, edit, complete, and delete tasks
-- built with html, css, and javascript
+- built with electron, html, css, and javascript
 
 ### how to use
-clone repository:
-```bash
-git clone https://github.com/cel004/ditto.git```
-
-run 'npm start'
+- clone repository 'git clone https://github.com/cel004/ditto.git'
+- open project folder in editor
+- run 'npm start' in console to launch
